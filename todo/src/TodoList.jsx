@@ -35,7 +35,7 @@ function TodoList() {
       <label>
         Date:
         <input
-          type="text"
+          type="date" // lisää kalenterin 
           name="date"
           placeholder="date"
           value={todo.date}
