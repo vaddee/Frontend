@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import TodoTable from "./TodoTable";
+import TodoGrid from "./components/TodoGrid";
+
+
 
 function TodoList() {
-  const [todo, setTodo] = useState({ description: "", date: "" });
+  const [todo, setTodo] = useState({ description: "", date: "", priority: ""});
   const [todos, setTodos] = useState([]);
+
+ 
 
   const handleChange = (event) => {
     setTodo({ ...todo, [event.target.name]: event.target.value });
@@ -11,11 +16,11 @@ function TodoList() {
 
   const addTodo = () => {
     setTodos([...todos, todo]);
-    setTodo({ description: "", date: "" }); // poistaa todos
+    setTodo({ description: "", date: "", priority: "" }); // poistaa todos
   };
 
   const deleteByIndex = (index) => {
-    setTodos(todos.filter((item, i) => i !== index));
+    setTodos(todos.filter((item, i) => i != index));
   };
 
   return (
@@ -41,12 +46,20 @@ function TodoList() {
           value={todo.date}
           onChange={handleChange}
         />
+
+<input
+          type="priority" 
+          name="priority"
+          placeholder="priority"
+          value={todo.priority}
+          onChange={handleChange}
+        />
       </label>
 
       <button onClick={addTodo}>Add</button>
       <br />
 
-      <TodoTable todos={todos} deleteByIndex={deleteByIndex} />
+      <TodoGrid todos={todos} deleteByIndex={deleteByIndex} />
     </>
   );
 }
