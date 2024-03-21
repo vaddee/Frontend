@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import React from "react";
 
 function TodoTable({ todos, deleteByIndex }) {
@@ -7,6 +8,7 @@ function TodoTable({ todos, deleteByIndex }) {
       <td>{todo.date}</td>
       <td>
         <button onClick={() => deleteByIndex(index)}>Delete</button>
+        
       </td>
     </tr>
   ));

@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-material.css"; // Material Design theme
+import { Button } from "@mui/material";
 
 
 export default  function TodoGrid(props){
@@ -26,8 +27,9 @@ export default  function TodoGrid(props){
 
     return (
         <>
-
-            <button onClick={onDelete}>poista valittu</button>
+            
+            
+            <Button variant="contained" color="error" onClick={onDelete}>poista valittu</Button>
             <div className="ag-theme-material" style={{ width: 700, height: 500 }}>
                 <AgGridReact
                     ref={gridRef}
